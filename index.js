@@ -1,4 +1,4 @@
-const MaxHeap = require('./src/max-heap');
+const linkedList = require('./src/linked-list');
 
-const h = new MaxHeap();
+const h = new linkedList();
 window.h = h;
