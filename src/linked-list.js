@@ -56,9 +56,13 @@ class LinkedList {
                 this._tail = this._tail.next;
             }
         } else {
+            
             var BufferForPrevNode = BufferForNextNode.prev;
             BufferForNextNode.prev = new Node(data, BufferForPrevNode, BufferForNextNode);
-            BufferForPrevNode.next = BufferForNextNode.prev;
+            if (BufferForPrevNode != null)
+            {
+                BufferForPrevNode.next = BufferForNextNode.prev;
+            }
         }
 
         this.length += 1;
