@@ -95,15 +95,16 @@ class LinkedList {
             BufferForNode.prev.next = BufferForNode.next;
             BufferForNode.next.prev = BufferForNode.prev;
         } else {
-            if (BufferForNode.prev == null) {
-                this._head = BufferForNode.next;
-            } else {
-                BufferForNode.prev.next = BufferForNode.next;
-            }
-            if (BufferForNode.next == null) {
+            if (BufferForNode.prev != null) {
                 this._tail = BufferForNode.prev;
-            } else {
-                BufferForNode.next.prev = BufferForNode.prev;
+            } 
+            else if (BufferForNode.next != null){
+                this._head = BufferForNode.next;
+            }
+            else
+            {
+                this._head = null;
+                this._tail = null;
             }
         }
 
@@ -113,7 +114,7 @@ class LinkedList {
     }
 
     reverse() {
-        if (this._head != null && this.length > 1) {
+        if (this.length > 1) {
             var IndexFromHead = 0;
             var IndexFromTail = this.length - 1;
             var NodeFromHead = this._head;
