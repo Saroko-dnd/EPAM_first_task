@@ -50,7 +50,7 @@ class LinkedList {
         }
         if (BufferForNextNode == null) {
             if (this._tail == null) {
-                this.append(data);
+                return this.append(data);
             } else {
                 this._tail.next = new Node(data, this._tail, BufferForNextNode);
                 this._tail = this._tail.next;
@@ -62,6 +62,10 @@ class LinkedList {
             if (BufferForPrevNode != null)
             {
                 BufferForPrevNode.next = BufferForNextNode.prev;
+            }
+            else
+            {
+                this._head = BufferForNextNode.prev;
             }
         }
 
